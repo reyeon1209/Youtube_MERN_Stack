@@ -26,7 +26,7 @@ function VideoUploadPage() {
     const [Category, setCategory] = useState("Film & Animation");
     const [FilePath, setFilePath] = useState("");
     const [Duration, setDuration] = useState("");
-    const [ThumbnailPath, setThumbnailPath] = useState("initialState");
+    const [ThumbnailPath, setThumbnailPath] = useState("");
 
     const onTitleChange = (event) => {
         setVideoTitle(event.currentTarget.value)
