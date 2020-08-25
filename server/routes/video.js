@@ -4,6 +4,7 @@ const router = express.Router();
 
 const { auth } = require("../middleware/auth");
 const multer = require("multer");
+const ffmpeg = require("fluent-ffmpeg");
 
 //=================================
 //             Video
@@ -37,5 +38,45 @@ router.post('/uploadfiles', (req, res) => {
         return res.json({ success: true, url: res.req.file.path, fileName: res.req.file.filename })
     });
 })
+
+router.post('/thumbnails', (req, res) => {
+    // 비디오 정보(러닝타임 등) 가져오기
+    var filePath = "";
+    var fileDuration = "";
+
+    ffmpeg.ffprobe(req.body.url, function(err, metadata) {
+        console.dir(metadata);
+        console.log(metadata.format.duration);
+
+        fileDuration = metadata.format.duration;
+    })
+
+    // 썸네일 생성
+    ffmpeg(req.body.url)    // req.body.url : client 비디오 저장 경로
+    .on('filenames', function(filenames) {
+        console.log('Will generate ' + filenames.join(', '));
+        console.log(filenames);
+
+        filePath = "uploads/thumbnails/" + filenames[0];
+    }).on('end', function() {   // end : 썸네일 생성 후 할 일
+        console.log('Screenshots taken');
+
+        return res.json({
+            success: true,
+            url: filePath,
+            fileDuration: fileDuration
+        });
+    }).on('error', function(err) {
+        console.error(err);
+
+        return res.json({ success: false, err });
+    }).screenshots({
+        count: 3,   // 3개의 썸네일
+        folder: 'uploads/thumbnails',   // 썸네일 저장 폴더
+        size: '320x240',    // 썸네일 사이즈
+        filename: 'thumbnails-%b.png'   // %b : 원래 파일 이름
+    });
+})
+
 
 module.exports = router;
