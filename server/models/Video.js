@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 const moment = require("moment");
 
 const videoSchema = mongoose.Schema({   // Video Collection
-    wirter: {
+    writer: {
         type: Schema.Types.ObjectId,    // Id만 넣으면
         ref: 'User' // User 모델로 가서 모든 정보 긁어옴
     },
