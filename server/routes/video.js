@@ -93,9 +93,18 @@ router.get('/getVideos', (req, res) => {
         .populate('writer') // populate : 하나의 다큐먼트가 다른 다큐먼트의 ObjectId를 쓰는 경우, ObjectId를 실제 객체로 치환하는 작업을 해줌
         .exec((err, videos) => {
             if (err) return res.status(400).send(err);
-            res.status(200).json({ success: true, videos })
+
+            res.status(200).json({ success: true, videos });
         });
 });
 
+router.post("/getVideoDetails", (req, res) => {
+    Video.findOne({ "_id": req.body.videoId })
+        .populate('writer')
+        .exec((err, videoDetails) => {
+            if(err) return res.status(400).send(err);
+            res.status(200).json({ success: true, videoDetails })
+        });
+});
 
 module.exports = router;

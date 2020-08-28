@@ -26,7 +26,7 @@ function LandingPage() {
         return <Col lg={6} md={8} xs={24}>
                 {/*column 하나 가로 크기 : 가장 클 때 = 6*4개, 미디움 = 8*3개, 가장 작을 때 = 24*1개 */}
                     <div style={{ position: 'relative' }}>
-                        <a href={`/video/post/${video._id}`} > 
+                        <a href={`/video/${video._id}`} > 
                         <img style={{ width: '100%' }} alt="thumbnail" src={`http://localhost:5000/${video.thumbnail}`} />
                         <div className=" duration">
                             <span>{minutes} : {seconds}</span>

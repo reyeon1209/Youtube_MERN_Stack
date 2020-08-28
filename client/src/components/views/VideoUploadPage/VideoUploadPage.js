@@ -15,7 +15,7 @@ const PrivateOptions = [
 const CategoryOptions = [
     { value: 0, label: "Film & Animation" },
     { value: 1, label: "Autos & Vehicles" },
-    { value: 2, label: "Music" },
+    { value: 2, label: "Universe" },
     { value: 3, label: "Pets & Animals" },
 ];
 
