@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const moment = require("moment");
 
 const videoSchema = mongoose.Schema({   // Video Collection
     writer: {

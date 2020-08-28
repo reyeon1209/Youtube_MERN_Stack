@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Row, Col, List, Avatar } from 'antd';
 import Axios from 'axios';
 import SideVideo from './Sections/SideVideo';
+import Subscribe from './Sections/Subscriber';
 
 function VideoDetailPage(props) {
     const videoId = props.match.params.videoId; // app.js의 Route path의 videoId
@@ -27,7 +28,7 @@ function VideoDetailPage(props) {
                 <div style={{ width: '100%', padding: '3rem 4rem' }}>
                     <video style={{ width: '100%' }} src={`http://localhost:5000/${VideoDetails.filePath}`} controls />
                     <List.Item
-                        actions
+                        actions={[<Subscribe userTo={VideoDetails.writer._id} userFrom={localStorage.getItem('userId')} />]}
                     >
                         <List.Item.Meta
                             avatar={<Avatar src={VideoDetails.writer.image} />}
