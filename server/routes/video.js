@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const { Video } = require("../models/Video");
+const { Subscriber } = require("../models/Subscriber");
 
 const multer = require("multer");
 const ffmpeg = require("fluent-ffmpeg");
@@ -102,8 +103,31 @@ router.post("/getVideoDetails", (req, res) => {
     Video.findOne({ "_id": req.body.videoId })
         .populate('writer')
         .exec((err, videoDetails) => {
-            if(err) return res.status(400).send(err);
-            res.status(200).json({ success: true, videoDetails })
+            if (err) return res.status(400).send(err);
+
+            res.status(200).json({ success: true, videoDetails });
+        });
+});
+
+router.post('/getSubscriptionVideos', (req, res) => {
+    // 자신의 ID로 구독자 찾기
+    Subscriber.find({ userFrom: req.body.userFrom })
+        .exec((err, subscriberInfo) => {
+            if (err) return res.status(400).send(err);
+
+            let subscribedUser = [];
+            subscriberInfo.map((subscriber, i) => {
+                subscribedUser.push(subscriber.userTo);
+            })
+            
+            // 찾은 구독자들이 업로드한 비디오 가져오기
+            Video.find({ writer: { $in: subscribedUser }})  // 여러명의 Use가 들어있어도 각각의 id로 find 가능
+                .populate('writer')
+                .exec((err, videos) => {
+                    if (err) return res.status(400).send(err);
+
+                    res.status(200).json({ success: true, videos });
+                });
         });
 });
 
