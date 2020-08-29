@@ -14,4 +14,4 @@
 
 
 <h3>DB Model</h3>    
-<img src="https://user-images.githubusercontent.com/46713032/91594127-534dd080-e99c-11ea-93a7-0bb0ede3ccef.jpg" alt="DB" width="600" height="350">  
+<img src="https://user-images.githubusercontent.com/46713032/91640946-28c34c80-ea5c-11ea-8500-eb6d4370e530.jpg" alt="DB" width="600" height="350">  
