@@ -3,23 +3,38 @@ import { Row, Col, List, Avatar } from 'antd';
 import Axios from 'axios';
 import SideVideo from './Sections/SideVideo';
 import Subscribe from './Sections/Subscriber';
+import Comment from './Sections/Comment';
 
 function VideoDetailPage(props) {
     const videoId = props.match.params.videoId; // app.js의 Route path의 videoId
-    const variable = { videoId: videoId };
+    const videoVariable = { videoId: videoId };
 
     const [VideoDetails, setVideoDetails] = useState([]);
+    const [CommentLists, setCommentLists] = useState([]);
 
     useEffect(() => {
-        Axios.post('/api/video/getVideoDetails', variable)
+        Axios.post('/api/video/getVideoDetails', videoVariable)
             .then(response => {
                 if (response.data.success) {
                     setVideoDetails(response.data.videoDetails);
                 } else {
                     alert('비디오 정보를 가져오는데 실패했습니다!')
                 }
-            })
+            });
+
+        Axios.post('/api/comment/getComments', videoVariable)
+            .then(response => {
+                if (response.data.success) {
+                    setCommentLists(response.data.comments);
+                } else {
+                    alert('댓글 정보를 가져오는데 실패했습니다!')
+                }
+            });
     }, [])
+
+    const updateComment = (newComment) => {
+        setCommentLists(CommentLists.concat(newComment));
+    };
 
     if (VideoDetails.writer) {
         const subscribeButton = VideoDetails.writer._id !== localStorage.getItem('userId') && <Subscribe userTo={VideoDetails.writer._id} userFrom={localStorage.getItem('userId')} />
@@ -38,7 +53,7 @@ function VideoDetailPage(props) {
                         />
                     </List.Item>
     
-                    {/* Comments */}
+                    <Comment refreshFunction={updateComment} commentLists={CommentLists} videoId={videoId} />
                 </div>
                 </Col>
                 <Col lg={6} xs={24} >
