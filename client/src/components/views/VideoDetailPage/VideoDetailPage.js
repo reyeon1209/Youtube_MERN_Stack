@@ -50,8 +50,9 @@ function VideoDetailPage(props) {
                     >
                         <List.Item.Meta
                             avatar={<Avatar src={VideoDetails.writer.image} />}
-                            title={VideoDetails.writer.name}
-                            description={VideoDetails.description}
+                            title={VideoDetails.title}
+                            description={VideoDetails.writer.name}
+                            
                         />
                     </List.Item>
     
