@@ -29,8 +29,8 @@
 <img src="https://user-images.githubusercontent.com/46713032/91658838-b65b7680-eb06-11ea-86e6-4a6d36d48fef.png">  
 
 <h3>Video Page</h3>  
-<img src="https://user-images.githubusercontent.com/46713032/91658818-8e6c1300-eb06-11ea-917d-4da651946302.png">  
-<img src="https://user-images.githubusercontent.com/46713032/91658832-a8a5f100-eb06-11ea-8f3d-2e7f05d12cc4.png">  
+<img src="https://user-images.githubusercontent.com/46713032/91658980-a3957180-eb07-11ea-8847-7e124c60dc68.png">  
+<img src="https://user-images.githubusercontent.com/46713032/91658985-adb77000-eb07-11ea-85ff-2de3fb52801a.png">  
 
 <h3>Video Upload Page</h3>  
 <img src="https://user-images.githubusercontent.com/46713032/91658883-f6baf480-eb06-11ea-8c0e-257523389501.png">  
