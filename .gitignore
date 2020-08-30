@@ -1,6 +1,7 @@
 /node_modules
 /build
 /uploads
+/DB
 
 dev.js
 

@@ -4,6 +4,7 @@ import Axios from 'axios';
 import SideVideo from './Sections/SideVideo';
 import Subscribe from './Sections/Subscriber';
 import Comment from './Sections/Comment';
+import LikeDislikes from './Sections/LikeDislikes';
 
 function VideoDetailPage(props) {
     const videoId = props.match.params.videoId; // app.js의 Route path의 videoId
@@ -38,13 +39,14 @@ function VideoDetailPage(props) {
 
     if (VideoDetails.writer) {
         const subscribeButton = VideoDetails.writer._id !== localStorage.getItem('userId') && <Subscribe userTo={VideoDetails.writer._id} userFrom={localStorage.getItem('userId')} />
+
         return (
             <Row gutter={[16, 16]}>
                 <Col lg={18} xs={24} >
                 <div style={{ width: '100%', padding: '3rem 4rem' }}>
                     <video style={{ width: '100%' }} src={`http://localhost:5000/${VideoDetails.filePath}`} controls />
                     <List.Item
-                        actions={[subscribeButton]}
+                        actions={[ <LikeDislikes video userId={localStorage.getItem('userId')} videoId={videoId} />, subscribeButton]}
                     >
                         <List.Item.Meta
                             avatar={<Avatar src={VideoDetails.writer.image} />}
