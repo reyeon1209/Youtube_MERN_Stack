@@ -9,9 +9,28 @@
 <h3 align="center">Youtube_MERN_Stack</h3>  
   
 * * *  
+
 <h3>RDBMS vs MongoDB</h3>  
 <img src="https://user-images.githubusercontent.com/46713032/91253070-eec32380-e799-11ea-99a4-0d8b7e08ef5e.jpg" alt="DB" width="600" height="350">  
 
 
 <h3>DB Model</h3>    
 <img src="https://user-images.githubusercontent.com/46713032/91640946-28c34c80-ea5c-11ea-8500-eb6d4370e530.jpg" alt="DB" width="700" height="500">  
+
+* * *  
+
+<h3>Login Page</h3>  
+<img src="https://user-images.githubusercontent.com/46713032/91658789-54027600-eb06-11ea-9c04-88cd96b5ef3c.png">  
+
+<h3>Landing Page</h3>  
+<img src="https://user-images.githubusercontent.com/46713032/91658809-77c5bc00-eb06-11ea-8474-73f925b84e92.png">  
+
+<h3>Subscription Page</h3>  
+<img src="https://user-images.githubusercontent.com/46713032/91658838-b65b7680-eb06-11ea-86e6-4a6d36d48fef.png">  
+
+<h3>Video Page</h3>  
+<img src="https://user-images.githubusercontent.com/46713032/91658818-8e6c1300-eb06-11ea-917d-4da651946302.png">  
+<img src="https://user-images.githubusercontent.com/46713032/91658832-a8a5f100-eb06-11ea-8f3d-2e7f05d12cc4.png">  
+
+<h3>Video Upload Page</h3>  
+<img src="https://user-images.githubusercontent.com/46713032/91658883-f6baf480-eb06-11ea-8c0e-257523389501.png">  
